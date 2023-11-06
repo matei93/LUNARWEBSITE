@@ -3,10 +3,8 @@ import CarouselFeature from "../inc/Carousel";
 
 function Home() {
   return (
-    <div className="container">
-      <div className="card mt-4">
-        <div className="card-body"></div>
-      </div>
+    <div>
+      <CarouselFeature />
     </div>
   );
 }

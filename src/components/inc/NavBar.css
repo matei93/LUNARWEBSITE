@@ -1,0 +1,21 @@
+/*Navbar Style*/
+.navbar {
+  font-weight: lighter;
+  font-size: x-small;
+  transition: all 0.8s;
+  background-color: transparent !important;
+}
+.nav-link {
+  font-weight: lighter;
+  font-size: x-small;
+}
+
+.fixed-top {
+  height: 50px;
+}
+.logoLunar {
+  height: 35px;
+  width: 100px;
+  padding-top: 8px;
+  padding-bottom: 2px;
+}

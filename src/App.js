@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import NavBar from "./components/inc/NavBar";
-import CarouselFeature from "./components/inc/Carousel";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
@@ -22,16 +21,7 @@ function App() {
       <div>
         <NavBar />
         <Routes>
-          <Route
-            path="/home"
-            element={
-              <>
-                <CarouselFeature />
-                <Home />
-              </>
-            }
-          />
-
+          <Route path="/home" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/galeries" element={<Galeries />}></Route>
