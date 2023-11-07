@@ -1,13 +1,15 @@
 /*Navbar Style*/
 .navbar {
   font-weight: lighter;
-  font-size: x-small;
+  font-size: small;
   transition: all 0.8s;
-  background-color: transparent !important;
+  background-color: rgba(222, 222, 222, 0.333) !important;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .nav-link {
   font-weight: lighter;
-  font-size: x-small;
+  font-size: small;
 }
 
 .fixed-top {
@@ -18,4 +20,19 @@
   width: 100px;
   padding-top: 8px;
   padding-bottom: 2px;
+}
+.dropdown-menu {
+  background-color: rgba(222, 222, 222, 0.333) !important;
+  --bs-dropdown-min-width: 6rem !important;
+  --bs-dropdown-spacer: 0.5rem;
+  --bs-dropdown-border-color: none;
+}
+.navbar-toggler {
+  font-size: var(--bs-navbar-toggler-font-size);
+  line-height: 1;
+  color: var(--bs-navbar-color);
+  background-color: transparent;
+  border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
+  border-radius: var(--bs-navbar-toggler-border-radius);
+  transition: var(--bs-navbar-toggler-transition);
 }

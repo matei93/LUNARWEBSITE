@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: lighter;
+  font-size: x-small;
+}
+#root {
+  flex: 1;
+}
+.logoFooter {
+  height: 35px;
+  width: 35px;
+  padding-bottom: 10px;
+}
+.footer-line {
+  align-items: center;
+  border-top: 1px solid rgba(6, 6, 6, 0.263);
+  padding-top: 30px;
+}
+.center-button {
+  text-align: center;
+  padding-bottom: 10px;
+}

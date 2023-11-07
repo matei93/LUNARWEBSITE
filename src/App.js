@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./components/inc/NavBar";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
@@ -7,7 +7,7 @@ import Galeries from "./components/pages/Galeries";
 import Nunta from "./components/pages/Nunta";
 import LoveStories from "./components/pages/LoveStories";
 import Botez from "./components/pages/Botez";
-import Services from "./components/pages/Services";
+import Footer from "./components/inc/Footer";
 import {
   BrowserRouter as BrowserRouter,
   Route,
@@ -20,6 +20,7 @@ function App() {
     <BrowserRouter>
       <div>
         <NavBar />
+
         <Routes>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
@@ -28,8 +29,8 @@ function App() {
           <Route path="/nunta" element={<Nunta />}></Route>
           <Route path="/lovestories" element={<LoveStories />}></Route>
           <Route path="/botez" element={<Botez />}></Route>
-          <Route path="/services" element={<Services />}></Route>
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,10 +12,10 @@ function NavBar() {
       className="navbar navbar-expand-lg fixed-top navbar-scr navbar-scrolled bg-body-tertiary bg-dark  "
     >
       <Container>
-        <Navbar.Brand href="home">
+        <Navbar.Brand href="homE">
           <img
             className=" logoLunar d-block w-100 ms-auto"
-            src="/images/LOGO ALB.png"
+            src="/images/LOGO NEGRU.png"
             alt="First slide"
           />
         </Navbar.Brand>
@@ -25,12 +25,17 @@ function NavBar() {
             <Nav.Link href="home">Home</Nav.Link>
             <Nav.Link href="about">About</Nav.Link>
             <NavDropdown title="Galeries" id="basic-nav-dropdown">
-              <Nav.Link href="Nunta">Nunta</Nav.Link>
-              <Nav.Link href="LoveStories">Love Stories</Nav.Link>
-              <Nav.Link href="Botez">Botez</Nav.Link>
+              <Nav.Link className="dropdown" href="Nunta">
+                Nunta
+              </Nav.Link>
+              <Nav.Link className="dropdown" href="LoveStories">
+                Love Stories
+              </Nav.Link>
+              <Nav.Link className="dropdown" href="Botez">
+                Botez
+              </Nav.Link>
             </NavDropdown>
             <Nav.Link href="Contact">Contact</Nav.Link>
-            <Nav.Link href="Services">Services</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
