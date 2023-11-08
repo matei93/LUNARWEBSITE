@@ -15,7 +15,7 @@ const Footer = () => {
         </Row>
         <Row>
           <Col md={6}>
-            <a href="home" className="logo">
+            <a href="/" className="logo">
               <img
                 className="logoFooter"
                 src="/images/LOGO ALB.png"

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "lunar-app",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,5 +1,8 @@
-.carousel-item {
-  height: 860px;
+.c-item {
+  display: block;
+  width: fit-auto;
+  height: 880px;
+  object-fit: cover;
 }
 
 .c-img {

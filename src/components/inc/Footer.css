@@ -19,7 +19,7 @@
 }
 .footer-line {
   align-items: center;
-  border-top: 1px solid rgba(6, 6, 6, 0.263);
+  border-top: 1px solid rgb(6, 6, 6);
   padding-top: 30px;
 }
 .center-button {

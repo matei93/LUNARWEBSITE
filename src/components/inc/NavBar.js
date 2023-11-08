@@ -12,7 +12,7 @@ function NavBar() {
       className="navbar navbar-expand-lg fixed-top navbar-scr navbar-scrolled bg-body-tertiary bg-dark  "
     >
       <Container>
-        <Navbar.Brand href="homE">
+        <Navbar.Brand href="">
           <img
             className=" logoLunar d-block w-100 ms-auto"
             src="/images/LOGO NEGRU.png"
@@ -22,7 +22,7 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className=" ms-auto">
-            <Nav.Link href="home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="about">About</Nav.Link>
             <NavDropdown title="Galeries" id="basic-nav-dropdown">
               <Nav.Link className="dropdown" href="Nunta">
