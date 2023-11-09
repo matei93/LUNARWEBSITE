@@ -38,7 +38,7 @@ function ContactForm() {
   };
 
   return (
-    <div id="contact-container">
+    <div id="contact-container d-flex justify-content-center">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>

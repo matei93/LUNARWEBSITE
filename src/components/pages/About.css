@@ -1,17 +1,14 @@
 .about-me {
   width: 80%;
-  left: 70%;
-  top: 10%;
-
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Change to row to have image and text side by side */
   align-items: center;
   justify-content: space-between;
   padding-top: 110px;
   padding-bottom: 60px;
-
-  padding-left: 25px;
-  padding-right: 25px;
+  box-sizing: border-box;
 }
 
 .about-me-text {
@@ -19,14 +16,34 @@
   font-family: -apple-system, BlinkMacSystemFont, "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-left: 30%;
-  padding-right: 25px;
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 25px; /* Adjust padding based on your design */
+  padding-right: 25px; /* Adjust padding based on your design */
 }
 
 .about-me-image img {
-  float: right;
-  width: auto;
-  height: 572px;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 572px;
+  height: 500px;
+  margin-top: 20px;
+}
+
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 768px) {
+  .about-me {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items on small screens */
+  }
+
+  .about-me-image {
+    order: -1; /* Move the image to the top */
+    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+  }
+
+  .about-me-text {
+    padding-left: 5%; /* Adjust padding based on your design */
+    padding-right: 5%; /* Adjust padding based on your design */
+  }
 }

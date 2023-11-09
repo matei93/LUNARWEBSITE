@@ -1,32 +1,23 @@
-/*Navbar Style*/
 .navbar {
   font-weight: lighter;
   font-size: small;
   transition: all 0.8s;
   background-color: rgba(222, 222, 222, 0.333) !important;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-.nav-link {
-  font-weight: lighter;
-  font-size: small;
+  padding-top: 15px; /* Adjusted padding for mobile view */
+  padding-bottom: 15px; /* Adjusted padding for mobile view */
 }
 
 .fixed-top {
-  height: 50px;
+  height: auto; /* Remove fixed height for mobile view */
 }
+
 .logoLunar {
   height: 35px;
   width: 100px;
   padding-top: 8px;
   padding-bottom: 2px;
 }
-.dropdown-menu {
-  background-color: rgba(222, 222, 222, 0.333) !important;
-  --bs-dropdown-min-width: 6rem !important;
-  --bs-dropdown-spacer: 0.5rem;
-  --bs-dropdown-border-color: none;
-}
+
 .navbar-toggler {
   font-size: var(--bs-navbar-toggler-font-size);
   line-height: 1;
@@ -35,4 +26,62 @@
   border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
   border-radius: var(--bs-navbar-toggler-border-radius);
   transition: var(--bs-navbar-toggler-transition);
+}
+
+.nav-link {
+  font-weight: lighter;
+  font-size: small;
+}
+
+.dropdown-menu {
+  padding-left: 10px;
+  min-width: 6rem;
+  border-radius: 0%;
+  border-width: 0cap;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .navbar-toggler {
+    margin-top: 8px;
+    margin-bottom: 10px; /* Add margin at the bottom for spacing */
+  }
+
+  .navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+  }
+  .dropdown-menu {
+    padding-left: 10px;
+    min-width: 6rem;
+    border-radius: 0%;
+    border-width: 0cap;
+  }
+
+  .logoLunar {
+    order: -1;
+  }
+
+  .navbar-nav {
+    margin-top: 8px;
+  }
+
+  .nav-item {
+    text-align: left;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-nav {
+    margin-left: auto; /* Push menu items to the right in desktop view */
+  }
+  .navbar-collapse.collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
 }

@@ -1,5 +1,6 @@
 .footer {
   display: flex;
+  flex-direction: column;
   color: black;
   text-align: center;
   padding: 10px;
@@ -8,21 +9,30 @@
   -moz-osx-font-smoothing: grayscale;
   font-weight: lighter;
   font-size: x-small;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
-#root {
-  flex: 1;
-}
+
 .logoFooter {
   height: 35px;
   width: 35px;
   padding-bottom: 10px;
 }
+
 .footer-line {
-  align-items: center;
   border-top: 1px solid rgb(6, 6, 6);
   padding-top: 30px;
 }
+
 .center-button {
   text-align: center;
   padding-bottom: 10px;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+  }
 }
