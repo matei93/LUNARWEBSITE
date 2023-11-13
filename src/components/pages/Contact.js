@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { database } from "../../firebase/config";
 import "./Contact.css";
+import { addDoc, collection, doc } from "firebase/firestore";
 
 function ContactForm() {
   const [name, setName] = useState("");
@@ -15,7 +16,7 @@ function ContactForm() {
     setSubmitting(true);
 
     try {
-      await database.ref("contacts").push({
+      const docRef = await addDoc(collection(database, "contacts"), {
         name,
         email,
         message,

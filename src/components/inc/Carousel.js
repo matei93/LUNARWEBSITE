@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { database } from "../../firebase/config";
+import { storage } from "../../firebase/config";
 
 function CarouselFeature() {
   const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
     // Reference to the 'images' node in your Firebase Realtime Database
-    const imagesRef = database.ref("images");
+    const fetchImages = async () => {
+      let result = await storage.ref().child("carouselImages").listAll();
+      let urlPromises = result.items.map((imageRef) =>
+        imageRef.getDownloadURL()
+      );
+      return Promise.all(urlPromises);
+    };
 
-    // Fetch image URLs from the database
-    imagesRef
-      .once("value")
-      .then((snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          // Convert the object of image URLs into an array
-          const urls = Object.values(data);
-          setImageUrls(urls);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching images from Firebase Database:", error);
-      });
+    const loadImages = async () => {
+      const urls = await fetchImages();
+      setImageUrls(urls);
+    };
+    loadImages();
   }, []);
 
   return (
