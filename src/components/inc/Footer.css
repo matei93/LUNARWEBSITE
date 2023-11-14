@@ -25,11 +25,29 @@
   padding-top: 30px;
 }
 
-.center-button {
-  text-align: center;
-  padding-bottom: 10px;
+.footer a {
+  text-decoration: none;
+  color: rgb(157, 156, 156);
+  margin: 0 10px;
 }
 
+.footer a:hover {
+  color: #090909; /* Change color on hover as needed */
+}
+
+.fixed-top-button {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.btn {
+  margin-bottom: 20px !important;
+}
+
+.footer a i {
+  margin-bottom: 25px !important; /* Add margin bottom to create space */
+}
 /* Media query for smaller screens */
 @media only screen and (max-width: 600px) {
   .footer {

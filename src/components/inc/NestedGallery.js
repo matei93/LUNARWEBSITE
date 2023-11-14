@@ -1,32 +1,39 @@
 // Import necessary modules and components
-
-import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
+import { storage } from "../../firebase/config";
 import "./NestedGallery.css";
 
-// Sample data for the gallery
-const galleryData = [
-  {
-    title: "Gallery 1",
-    folder: "gallery1",
-    coverPhoto: "D75_3713.jpg",
-    images: ["D75_3713.jpg", "D75_3762.jpg", "D75_3815.jpg"],
-  },
-  {
-    title: "Gallery 2",
-    folder: "gallery2",
-    coverPhoto: "D75_3833.jpg",
-    images: ["D75_3833.jpg", "D75_3847.jpg", "D75_3859.jpg"],
-  },
-];
-
-// Gallery component
-// Gallery component
 const NestedGallery = () => {
+  const [galleryData, setGalleryData] = useState([]);
   const [activeGallery, setActiveGallery] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(null);
+
+  useEffect(() => {
+    const fetchGalleryData = async () => {
+      try {
+        const snapshot = await storage.collection("galleryData").get();
+        const data = snapshot.docs.map((doc) => doc.data());
+        setGalleryData(data);
+      } catch (error) {
+        console.error("Error fetching gallery data:", error);
+      }
+    };
+
+    fetchGalleryData();
+  }, []);
 
   const handleGalleryClick = (galleryIndex) => {
+    setActiveImageIndex(null);
     setActiveGallery(activeGallery === galleryIndex ? null : galleryIndex);
+  };
+
+  const handleImageClick = (imageIndex) => {
+    setActiveImageIndex(imageIndex);
+  };
+
+  const handleCloseCarousel = () => {
+    setActiveImageIndex(null);
   };
 
   return (
@@ -41,16 +48,12 @@ const NestedGallery = () => {
           <h2 onClick={() => handleGalleryClick(index)}>{gallery.title}</h2>
           {activeGallery === index ? (
             <>
-              <Row>
-                <Col md={12}>
-                  <img
-                    src={`/gallery/${gallery.folder}/${gallery.coverPhoto}`}
-                    alt={`Gallery ${index + 1} Cover`}
-                    className="cover-photo img-fluid"
-                    onClick={() => handleGalleryClick(null)} // Clicking the cover photo hides all images
-                  />
-                </Col>
-              </Row>
+              <img
+                src={`/gallery/${gallery.folder}/${gallery.coverImage}`}
+                alt={`Gallery ${index + 1} Cover`}
+                className="gallery-cover img-fluid"
+                onClick={() => handleGalleryClick(null)}
+              />
               <Row>
                 {gallery.images.map((image, imageIndex) => (
                   <Col key={imageIndex} md={4}>
@@ -58,10 +61,30 @@ const NestedGallery = () => {
                       src={`/gallery/${gallery.folder}/${image}`}
                       alt={`Gallery ${index + 1} Image ${imageIndex + 1}`}
                       className="img-fluid"
+                      onClick={() => handleImageClick(imageIndex)}
                     />
                   </Col>
                 ))}
               </Row>
+              {activeImageIndex !== null && (
+                <Carousel
+                  activeIndex={activeImageIndex}
+                  onSelect={(selectedIndex) =>
+                    setActiveImageIndex(selectedIndex)
+                  }
+                  interval={null}
+                >
+                  {gallery.images.map((image, imageIndex) => (
+                    <Carousel.Item key={imageIndex}>
+                      <img
+                        src={`/gallery/${gallery.folder}/${image}`}
+                        alt={`Gallery ${index + 1} Image ${imageIndex + 1}`}
+                        className="img-fluid"
+                      />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              )}
             </>
           ) : null}
         </div>
